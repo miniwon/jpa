@@ -1,0 +1,17 @@
+import com.domain.EmpVO;
+
+public class EmpManagedMain {
+	public static void main(String[] args) {
+		
+		// 1299 
+		EmpVO emp = new EmpVO();
+		emp.setEmpno(1299);
+		emp.setEname("홍길숙");
+		
+		em.persist(emp);
+		
+		EmpVO emp1 = em.find(EmpVO.class, 1299);
+		System.out.println("검색 결과: " + emp1);
+
+	}
+}
