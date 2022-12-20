@@ -6,33 +6,41 @@ import javax.persistence.Persistence;
 import com.domain.EmpVO;
 
 public class EmpManagedMain {
+
 	public static void main(String[] args) {
-		// 1. 엔티티매니저팩토리 생성
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("aBasic");
-		
-		// 2. 엔티티매니저
+
+		// 1299 사번의 정보로 홍길숙님 정보 입력
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("bContextState");
 		EntityManager em = emf.createEntityManager();
-		
-		// 4. 엔티티트랜잭션 (커밋)
 		EntityTransaction tx = em.getTransaction();
-		
-		/* 
-		EmpVO emp = new EmpVO();
-		emp.setEmpno(1299);
-		emp.setEname("홍길숙");
-		
-		em.persist(emp);
-		*/
-		
-		EmpVO emp1 = em.find(EmpVO.class, 1299);
-		System.out.println("검색 결과: " + emp1);
-		
-		EmpVO emp2 = em.find(EmpVO.class, 1297);
-		System.out.println("검색 결과: " + emp2);
-		
-		if( emp1 == emp2 ) System.out.println("동일 객체");
-		else System.out.println("다른 객체");
-		
+		tx.begin();
+
+		try {
+
+			/*
+			 * EmpVO vo = new EmpVO(); vo.setEmpno(1234); vo.setEname("홍이삼");
+			 * em.persist(vo);
+			 */
+
+			EmpVO emp1 = em.find(EmpVO.class, 1297);
+			System.out.println("검색결과 : " + emp1);
+
+			EmpVO emp2 = em.find(EmpVO.class, 1297);
+			System.out.println("검색결과 : " + emp2);
+
+			if (emp1 == emp2)
+				System.out.println("동일객체");
+			else
+				System.out.println("다른객체");
+
+		} catch (Exception ex) {
+			System.out.println("실패 : " + ex.getMessage());
+
+		} finally {
+			tx.commit();
+			em.close();
+		}
 
 	}
+
 }

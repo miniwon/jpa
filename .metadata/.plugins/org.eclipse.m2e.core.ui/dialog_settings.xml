@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\jpa\bContextState\src\main\java\EmpManagedMain.java"/>
 			<item value="C:\jpa\bContextState\개념"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -44,12 +45,14 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="aBasic"/>
+			<item value="dJpql"/>
+			<item value="cReference"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="aBasic"/>
+			<item value="dJpql"/>
+			<item value="cReference"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -62,5 +65,9 @@
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 </section>

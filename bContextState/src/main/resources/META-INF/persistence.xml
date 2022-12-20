@@ -1,42 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 			http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
 	<!-- * 영속성 유닛 설정 : 여기 지정한 name값으로 찾음 -->
 	<persistence-unit name="bContextState">
-	
-		<!-- 엔티티 클래스 등록 (하지 않아도 됨!) -->
-		
-		<!-- JPA 설정 -->
+
+		<!-- 엔티티클래스 등록 (하지 않아도 됨) -->
+
+		<!-- JPA 설정 : DB 설정 -->
 		<properties>
-		<!-- DB 연결 설정(oracle) -->
-			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
-			<property name="javax.persistence.jdbc.user" value="scott"/>
-			<property name="javax.persistence.jdbc.password" value="tiger"/>
-		
-		<!-- JPA 구현체 설정 -->
-		<!-- Oracle -->
-		<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
-		
-		<!-- 옵션값 -->
-		<!-- 콘솔에 하이버네이트가 어떻게 실행되는지.. SQL 출력 -->
-		<property name="hibernate.show_sql" value="true"/>
-		
-		<!-- 테이블 처리 -->
-		<property name="hibernate.hbm2ddl.auto" value="update"/>
-		<!-- 
-		ddl-auto 옵션 종류
-					create: 기존테이블 삭제 후 다시 생성 (DROP + CREATE)
-					create-drop: create와 같으나 종료시점에 테이블 DROP
-					update: 변경분만 반영(운영DB에서는 사용하면 안됨)
-					validate: 엔티티와 테이블이 정상 매핑되었는지만 확인
-					none: 사용하지 않음(사실상 없는 값이지만 관례상 none이라고 한다.)
-		 -->
-		
+			<!-- DB 연결 설정 (오라클) -->
+			<property name="javax.persistence.jdbc.driver"
+				value="oracle.jdbc.driver.OracleDriver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
+			<property name="javax.persistence.jdbc.user" value="scott" />
+			<property name="javax.persistence.jdbc.password"
+				value="tiger" />
+			<!-- JPA 구현체 설정 -->
+			<!-- 오라클 -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.Oracle10gDialect" />
+
+			<!-- 옵션 -->
+			<!-- 콘솔에 하이버네이트가 실행하는 SQL 출력 -->
+			<property name="hibernate.show_sql" value="true" />
+			<!-- 테이블 처리 -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
 		</properties>
 
 
